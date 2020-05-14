@@ -1,4 +1,4 @@
-package ru.geekbrains.java.for_testing;
+package ru.geekbrains.java.for_testing.lesson1;
 
 import java.util.ArrayList;
 import java.util.Arrays;

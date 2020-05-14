@@ -1,4 +1,4 @@
-package ru.geekbrains.java.for_testing;
+package ru.geekbrains.java.for_testing.lesson1;
 
 
 public abstract class Fruit {
