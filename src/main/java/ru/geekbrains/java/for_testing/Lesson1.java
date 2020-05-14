@@ -1,8 +1,4 @@
-package ru.geekbrains.java.generics;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package ru.geekbrains.java.for_testing;
 
 /**
  * Даны классы Fruit, Apple extends Fruit, Orange extends Fruit;
@@ -14,46 +10,29 @@ import java.util.List;
  * Не забываем про метод добавления фрукта в коробку
  */
 
-public class Box<T extends Fruit> {
+public class Lesson1 {
 
-    private List<T> fruitBox;
+    public static void main(String[] args) {
+        Box<Apple> appleBox = new Box<>();
+        Box<Apple> appleBox2 = new Box<>();
 
-    public Box(T... arrFruits) {
-        fruitBox = new ArrayList<T>(Arrays.asList(arrFruits));
+        Box<Orange> orangeBox = new Box<>();
+        orangeBox.addFruits(new Orange());
+        orangeBox.addFruits(new Orange());
+
+        appleBox.addFruits(new Apple());
+        appleBox.addFruits(new Apple());
+        System.out.println("appleBox weight is: " + appleBox.boxWeight());
+
+        appleBox2.addFruits(new Apple());
+        System.out.println("appleBox2 weight is: " + appleBox2.boxWeight());
+
+        appleBox.transport(appleBox2);
+        System.out.println("appleBox weight is: " + appleBox.boxWeight());
+        System.out.println("appleBox2 weight is: " + appleBox2.boxWeight());
+
+        System.out.println("Compare orangeBox and appleBox: " + appleBox.compare(orangeBox));
+        System.out.println("Compare orangeBox and appleBox2: " + appleBox2.compare(orangeBox));
     }
 
-
-    public float boxWeight() {
-        if (fruitBox.size() == 0)
-            return 0.0f;
-        else {
-            return fruitBox.get(0).getWeight() * fruitBox.size();
-        }
-    }
-
-//    public float boxWeight() {
-//        float totalWeight = 0.0f;
-//        for (T fruit : fruitBox) {
-//            totalWeight += fruit.getFruitWeight();
-//        }
-//        return totalWeight;
-//    }
-
-
-    public void addFruits(T fruit) {
-        fruitBox.add(fruit);
-    }
-
-
-    public boolean compare(Box otherBox) {
-        return Math.abs(this.boxWeight() - otherBox.boxWeight()) < 0.001f;
-    }
-
-
-    public void transport(Box<T> otherBox) {
-        if (this == otherBox)
-            return;
-        otherBox.fruitBox.addAll(this.fruitBox);
-        this.fruitBox.clear();
-    }
 }
