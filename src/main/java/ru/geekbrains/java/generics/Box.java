@@ -2,6 +2,7 @@ package ru.geekbrains.java.generics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Даны классы Fruit, Apple extends Fruit, Orange extends Fruit;
@@ -15,7 +16,7 @@ import java.util.Arrays;
 
 public class Box<T extends Fruit> {
 
-    ArrayList<T> fruitBox;
+    private List<T> fruitBox;
 
     public Box(T... arrFruits) {
         fruitBox = new ArrayList<T>(Arrays.asList(arrFruits));
@@ -26,7 +27,7 @@ public class Box<T extends Fruit> {
         if (fruitBox.size() == 0)
             return 0.0f;
         else {
-            return fruitBox.get(0).getFruitWeight() * fruitBox.size();
+            return fruitBox.get(0).getWeight() * fruitBox.size();
         }
     }
 
@@ -50,6 +51,8 @@ public class Box<T extends Fruit> {
 
 
     public void transport(Box<T> otherBox) {
+        if (this == otherBox)
+            return;
         otherBox.fruitBox.addAll(this.fruitBox);
         this.fruitBox.clear();
     }

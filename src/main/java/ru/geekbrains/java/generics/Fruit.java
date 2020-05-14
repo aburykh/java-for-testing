@@ -3,15 +3,15 @@ package ru.geekbrains.java.generics;
 
 public abstract class Fruit {
 
-    protected float fruitWeight;
+    protected float weight;
 
     public abstract Fruit newInstance();
 
-    public float getFruitWeight() {
-        return fruitWeight;
+    public float getWeight() {
+        return weight;
     }
 
-    public Fruit(float fruitWeight) {
-        this.fruitWeight = fruitWeight;
+    public Fruit(float weight) {
+        this.weight = weight;
     }
 }
