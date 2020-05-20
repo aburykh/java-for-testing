@@ -1,6 +1,7 @@
 /**
 package ru.geekbrains.java.for_testing.lesson2;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -14,20 +15,24 @@ public class CsvWriter extends AppData {
     }
 
     public void csvWriter(String fileName) {
-        try (PrintWriter out = new PrintWriter(fileName)) {
-            String dataHeader = this.header[0];
+        try (PrintWriter out = new PrintWriter(new FileOutputStream(fileName), true)) {
+
             // String[] header
-            for (int i = 1; i < this.header.length; i++) {
-                dataHeader += ";" + this.header[i];
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < header.length - 1; ++i) {
+                sb.append(header[i]).append(";");
             }
-            out.println(dataHeader);
+            sb.append(header[header.length - 1]).append("\n");
+            out.print(sb.toString());
+
             // int[][] data
-            for (int i = 0; i < this.data.length; i++) {
-                String data = String.valueOf(this.data[i][0]);
-                for (int j = 1; j < this.header.length; j++) {
-                    data += ";" + this.data[i][j];
+            for (int[] dataArray : data) {
+                sb.setLength(0);
+                for (int i = 0; i < dataArray.length - 1; ++i) {
+                    sb.append(dataArray[i]).append(";");
                 }
-                out.println(data);
+                sb.append(dataArray[dataArray.length - 1]).append("\n");
+                out.print(sb.toString());
             }
         } catch (IOException e) {
             e.printStackTrace();

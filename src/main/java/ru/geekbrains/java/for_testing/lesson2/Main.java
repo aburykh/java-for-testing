@@ -1,5 +1,7 @@
 package ru.geekbrains.java.for_testing.lesson2;
 
+import java.io.FileNotFoundException;
+
 /**
  * 1. Реализовать сохранение данных в csv файл;
  * 2. Реализовать загрузку данных из csv файла. Файл читается целиком.
@@ -29,13 +31,14 @@ package ru.geekbrains.java.for_testing.lesson2;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         AppData appData = new AppData("test.csv");
         appData.testCsvReader("test.csv");
         System.out.println("\n>>> First reading is done!\n");
 
         appData.csvReader("test.csv");
+        appData.printData();
         System.out.println("\n>>> Second reading & printing is done!");
 
         appData.csvWriter("test2.csv");

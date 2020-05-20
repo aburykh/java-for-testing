@@ -17,21 +17,30 @@ public class CsvReader {
 //    }
 
     public void csvReader(String fileName) {
-        List<String[]> dataArr = new ArrayList<>();
+        List<String[]> dataArrList = new ArrayList<>();
         try (BufferedReader in = new BufferedReader(new FileReader(fileName))) {
             String str = in.readLine();
             this.header = str.split(";");
+
             while ((str = in.readLine()) != null) {
-                dataArr.add(str.split(";"));
+                dataArrList.add(str.split(";"));
             }
+            for (String title : header) {
+                System.out.print(title + "\t");
+            }
+            System.out.println();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.data = new int[dataArr.size()][header.length];
-        for (int j = 0; j < dataArr.size(); j++) {
+        //System.out.println("тело");
+        this.data = new int[dataArrList.size()][header.length];
+        for (int j = 0; j < dataArrList.size(); j++) {
             for (int i = 0; i < header.length; i++) {
-                data[j][i] = Integer.parseInt(dataArr.get(j)[i]);
+                data[j][i] = Integer.parseInt(dataArrList.get(j)[i].trim());
+                System.out.print(data[j][i] + "\t");
             }
+            System.out.println();
         }
     }
 
