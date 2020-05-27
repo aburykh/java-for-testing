@@ -14,8 +14,6 @@ public class T1ArgIsNotEmptyArray {
 
     public static int[] ElementsAfterLastFour(int[] arr) throws RuntimeException {
         int n = -1;
-        //String str = Arrays.toString(arr);
-        //if (str.indexOf(String.valueOf(4)) != -1) {
             for (int i = 0; i < arr.length; i++) {
                 if (arr[i] == 4) n = i;
             }
@@ -24,11 +22,8 @@ public class T1ArgIsNotEmptyArray {
             }
             int[] arr1 = new int[arr.length - n - 1];
             System.arraycopy(arr, n + 1, arr1, 0, arr1.length);
-            //Arrays.copyOfRange(arr, n + 1, arr1.length);
+            // -- попробовать через Arrays.copyOfRange(arr, n + 1, arr1.length);
             return arr1;
-//        } else {
-//            throw new RuntimeException("В заданном массиве отсутствует \"4\"");
-//        }
     }
 
 }
