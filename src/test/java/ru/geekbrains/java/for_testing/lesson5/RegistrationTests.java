@@ -1,15 +1,16 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.stream.Stream;
 
 import static java.lang.Thread.sleep;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Registration tests for http://automationpractice.com")
 public class RegistrationTests extends BaseUITest {
@@ -65,6 +66,13 @@ public class RegistrationTests extends BaseUITest {
                 homePhone,
                 mobilePhone
 //                addressAlias
+                // нужно доделать
+//                Assertions.assertAll(
+//                        () -> assertTrue(registrationPage.checkAlertInfo(String text),
+//                        () -> assertTrue(registrationPage.checkAlertInfoFields(String text))
+//                        )
+//                Assertions.assertTrue(registrationPage.checkAlertInfo(String text)),
+//                Assertions.assertTrue(true, registrationPage.checkAlertInfoFields("Required field"))
         );
         sleep(3000);
         accountPage.checkAccountPage();

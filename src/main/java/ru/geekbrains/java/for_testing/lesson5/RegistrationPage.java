@@ -1,6 +1,5 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -43,6 +42,7 @@ public class RegistrationPage extends BaseActions {
     private static final By REGISTER_BTN = By.cssSelector("#submitAccount");
 
     private static final By ALERT_INFO = By.cssSelector("#center_column > div");
+    private static final By ALERT_INFO_FIELDS = By.cssSelector("#account-creation_form > div.submit.clearfix > p");
 
     public void fillingFieldsAndCreateAcc(
             String customerFirstName,
@@ -85,14 +85,31 @@ public class RegistrationPage extends BaseActions {
     }
 
 
-    public void checkAlertInfo(String text){
-        Assertions.assertTrue(driver.findElement(ALERT_INFO).getText().contains(text));
+//    public void checkAlertInfo(String text){
+//        Assertions.assertTrue(driver.findElement(ALERT_INFO).getText().contains(text));
+//    }
+
+//    public void checkAlertInfo(String text) {
+//        Assertions.assertAll(
+//                () -> assertTrue(driver.findElement(ALERT_INFO).getText().contains(text)),
+//                () -> assertTrue(driver.findElement(ALERT_INFO_DOWN).getText().contains("Required field"))
+//        );
+//    }
+
+    public String checkAlertInfo(String text) {
+        driver.findElement(ALERT_INFO).getText().contains(text);
+        return text;
+    }
+
+    public String checkAlertInfoFields(String text) {
+        driver.findElement(ALERT_INFO_FIELDS).getText().contains("Required field");
+        return text;
     }
 
     public void generateNewRandomEmail(int emailNameLength) {
         StringBuilder emailBuilder = new StringBuilder();
         for (int i = 0; i < emailNameLength; i++) {
-            emailBuilder.append((char)(97 + (int)(Math.random() * 26)));
+            emailBuilder.append((char) (97 + (int) (Math.random() * 26)));
         }
         emailBuilder.append("@gmail.com");
         type(emailBuilder.toString(), EMAIL);
