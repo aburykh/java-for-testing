@@ -1,5 +1,6 @@
 package ru.geekbrains.java.for_testing.lesson6;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.geekbrains.java.for_testing.lesson5.BaseUITest;
 
@@ -14,11 +15,12 @@ public class AuthTest extends BaseUITest {
     }
 
     @Test
-    public void authFailedTest() {
+    public void authFailedTest(String text) {
         mainPage.home();
         header.goToSignIn();
         signInPage.authentication("incorrect@email.com", "incorrect_password");
-        signInPage.checkAlertIfAuthFailed("Authentication failed");
+        //signInPage.checkAlertIfAuthFailed("Authentication failed");
+        Assertions.assertTrue(signInPage.checkAlertIfAuthFailed().contains(text.toLowerCase()), "Текст ошибки \"" + text + "\" не совпадает");
     }
 
 }

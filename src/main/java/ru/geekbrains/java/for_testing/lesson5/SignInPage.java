@@ -61,8 +61,12 @@ public class SignInPage extends BaseActions {
     }
 
     // assert вынести в тест
-    public void checkAlertIfAuthFailed(String text) {
-        Assertions.assertTrue(driver.findElement(ALERT_INFO).getText().contains(text));
+//    public void checkAlertIfAuthFailed(String text) {
+//        Assertions.assertTrue(driver.findElement(ALERT_INFO).getText().contains(text));
+//    }
+
+    public String checkAlertIfAuthFailed() {
+        return driver.findElement(ALERT_INFO).getText().toLowerCase();
     }
 
 }

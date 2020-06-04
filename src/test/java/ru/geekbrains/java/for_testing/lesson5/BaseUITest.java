@@ -39,7 +39,7 @@ public abstract class BaseUITest {
         wait = new WebDriverWait(driver, 3);
 
         accountPage = new AccountPage(driver, wait);
-        //cartPage = new CartPage(driver, wait);
+        cartPage = new CartPage(driver, wait);
         catalogPage = new CatalogPage(driver, wait);
         itemPage = new ItemPage(driver, wait);
         header = new Header(driver, wait);
