@@ -18,6 +18,11 @@ public abstract class BaseUITest {
     protected SignInPage signInPage;
     protected RegistrationPage registrationPage;
     protected AccountPage accountPage;
+    protected CartPage cartPage;
+    protected CatalogPage catalogPage;
+    protected ItemPage itemPage;
+    protected Header header;
+    protected PopUpAfterAddToCart popUpAfterAddToCart;
 
     @BeforeEach
     public void init() {
@@ -28,12 +33,20 @@ public abstract class BaseUITest {
         options.addArguments("incognito");
 
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 3);
-        mainPage = new MainPage(driver, wait);
-        signInPage = new SignInPage(driver, wait);
-        registrationPage = new RegistrationPage(driver, wait);
+
         accountPage = new AccountPage(driver, wait);
+        //cartPage = new CartPage(driver, wait);
+        catalogPage = new CatalogPage(driver, wait);
+        itemPage = new ItemPage(driver, wait);
+        header = new Header(driver, wait);
+        mainPage = new MainPage(driver, wait);
+        popUpAfterAddToCart = new PopUpAfterAddToCart(driver, wait);
+        registrationPage = new RegistrationPage(driver, wait);
+        signInPage = new SignInPage(driver, wait);
     }
 
     @AfterEach

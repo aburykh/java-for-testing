@@ -21,4 +21,5 @@ public class MainPage extends ru.geekbrains.java.for_testing.lesson5.BaseActions
     public void goToSignIn() {
         click(SIGN_IN_BTN);
     }
+
 }

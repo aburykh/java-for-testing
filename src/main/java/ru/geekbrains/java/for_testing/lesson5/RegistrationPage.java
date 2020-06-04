@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class RegistrationPage extends BaseActions {
 
     public RegistrationPage(WebDriver driver, WebDriverWait wait) {
@@ -47,7 +51,7 @@ public class RegistrationPage extends BaseActions {
     public void fillingFieldsAndCreateAcc(
             String customerFirstName,
             String customerLastName,
-//            String email,
+            String email,
             String passwd,
 //            String name,
 //            String lastName,
@@ -64,8 +68,8 @@ public class RegistrationPage extends BaseActions {
     ) {
         type(customerFirstName, CUSTOMER_FIRST_NAME);
         type(customerLastName, CUSTOMER_LAST_NAME);
-        generateNewRandomEmail(5);
-        //type(email, EMAIL);
+        //generateNewRandomEmail(5);
+        type(email, EMAIL);
         type(passwd, PASSWD);
 //        type(name, NAME);
 //        type(lastName, LAST_NAME);
@@ -79,20 +83,20 @@ public class RegistrationPage extends BaseActions {
         type(homePhone, HOME_PHONE);
         type(mobilePhone, MOBILE_PHONE);
 //        type(addressAlias, ADDRESS_ALIAS);
-        waitABit(3);
+        waitABit(5);
         click(REGISTER_BTN);
 
     }
 
 
-//    public void checkAlertInfo(String text){
+//    public void checkAlertInfo(String text) {
 //        Assertions.assertTrue(driver.findElement(ALERT_INFO).getText().contains(text));
 //    }
 
 //    public void checkAlertInfo(String text) {
 //        Assertions.assertAll(
 //                () -> assertTrue(driver.findElement(ALERT_INFO).getText().contains(text)),
-//                () -> assertTrue(driver.findElement(ALERT_INFO_DOWN).getText().contains("Required field"))
+//                () -> assertTrue(driver.findElement(ALERT_INFO_FIELDS).getText().contains("Required field"))
 //        );
 //    }
 
@@ -106,14 +110,30 @@ public class RegistrationPage extends BaseActions {
         return text;
     }
 
-    public void generateNewRandomEmail(int emailNameLength) {
-        StringBuilder emailBuilder = new StringBuilder();
-        for (int i = 0; i < emailNameLength; i++) {
-            emailBuilder.append((char) (97 + (int) (Math.random() * 26)));
-        }
-        emailBuilder.append("@gmail.com");
-        type(emailBuilder.toString(), EMAIL);
-        //click(REGISTER_BTN);
+    public static String getNameFromArr() {
+        List<String> names = new ArrayList<>(Arrays.asList("Bill",
+                "Paul",
+                "Steven",
+                "Stephen",
+                "Elon",
+                "Albert")
+        );
+
+        String name = names.get((int) (Math.random() * names.size()));
+        return name;
+    }
+
+    public static String getLastNameFromArr() {
+        List<String> lastNames = new ArrayList(Arrays.asList("Gates",
+                "Allen",
+                "Jobs",
+                "Wozniak",
+                "Musk",
+                "Einstein")
+        );
+
+        String lastName = lastNames.get((int) (Math.random() * lastNames.size()));
+        return lastName;
     }
 
 }
