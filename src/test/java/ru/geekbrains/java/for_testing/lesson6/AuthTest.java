@@ -11,7 +11,8 @@ public class AuthTest extends BaseUITest {
         mainPage.home();
         header.goToSignIn();
         signInPage.authentication("12345@123.ru", "пароль");
-        accountPage.checkAccountPage();
+//        accountPage.checkAccountPage();
+        Assertions.assertTrue(accountPage.checkAccountPage(), "Найдена ошибка в отображении элементов на AccountPage");
     }
 
     @Test

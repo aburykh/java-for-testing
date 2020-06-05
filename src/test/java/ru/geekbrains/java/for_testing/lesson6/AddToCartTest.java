@@ -1,5 +1,6 @@
 package ru.geekbrains.java.for_testing.lesson6;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.geekbrains.java.for_testing.lesson5.BaseUITest;
 import ru.geekbrains.java.for_testing.lesson5.Header;
@@ -28,13 +29,15 @@ public class AddToCartTest extends BaseUITest {
                 "305-777-6995",
                 "305-509-7777"
         );
-        accountPage.checkAccountPage();
+//        accountPage.checkAccountPage();
+        Assertions.assertTrue(accountPage.checkAccountPage(), "Найдена ошибка в отображении элементов на AccountPage");
         // логаут
         header.signOut();
         // логин
         header.goToSignIn();
         signInPage.authentication(email, "пароль");
-        accountPage.checkAccountPage();
+//        accountPage.checkAccountPage();
+        Assertions.assertTrue(accountPage.checkAccountPage(), "Найдена ошибка в отображении элементов на AccountPage");
         header.clickButtonTopMenu(Header.СheckButton.dresses);
         catalogPage.clickRandomElement();
         itemPage.addToCard(2);

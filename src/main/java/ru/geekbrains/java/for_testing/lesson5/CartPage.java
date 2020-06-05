@@ -33,7 +33,7 @@ public class CartPage extends BaseActions {
         super(driver, wait);
     }
 
-    public void proceedToCheckout() throws InterruptedException {
+/**    public void proceedToCheckoutAllTheWay() throws InterruptedException {
         click(PROCEED_TO_CHECKOUT_IN_CART);
         click(PROCEED_TO_CHECKOUT_IN_ADDRESSES);
         click(CHECKBOX_IN_SHIPPING);
@@ -42,6 +42,49 @@ public class CartPage extends BaseActions {
         click(I_CONFIRM_MY_ORDER);
         click(BACK_TO_ORDERS);
         sleep(5000);
+    }*/
+
+    public void proceedToCheckoutAllTheWay(int type) throws InterruptedException {
+        checkoutInCart();
+        checkoutInAddress();
+        checkboxInShipping();
+        checkoutInShipping();
+        typeOfPayment(type);
+        confirmOder();
+        backToOders();
+        sleep(5000);
+    }
+
+    public void checkoutInCart() {
+        click(PROCEED_TO_CHECKOUT_IN_CART);
+    }
+
+    public void checkoutInAddress() {
+        click(PROCEED_TO_CHECKOUT_IN_ADDRESSES);
+    }
+
+    public void checkoutInShipping() {
+        click(PROCEED_TO_CHECKOUT_IN_SHIPPING);
+    }
+
+    public void checkboxInShipping() {
+        click(CHECKBOX_IN_SHIPPING);
+    }
+
+    public void typeOfPayment(int type) {
+        if (type == 1) {
+            click(PAY_BY_BANK_WIRE);
+        } else {
+            click(PAY_BY_CHECK);
+        }
+    }
+
+    public void confirmOder() {
+        click(I_CONFIRM_MY_ORDER);
+    }
+
+    public void backToOders() {
+        click(BACK_TO_ORDERS);
     }
 
 }
