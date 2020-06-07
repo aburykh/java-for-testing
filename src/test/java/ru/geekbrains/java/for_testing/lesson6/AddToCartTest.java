@@ -1,16 +1,28 @@
 package ru.geekbrains.java.for_testing.lesson6;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import ru.geekbrains.java.for_testing.lesson5.BaseUITest;
 import ru.geekbrains.java.for_testing.lesson5.Header;
 import ru.geekbrains.java.for_testing.lesson5.RegistrationPage;
 
 import static java.lang.Thread.sleep;
 
+@Execution(ExecutionMode.SAME_THREAD)
+@DisplayName("Добавление в корзину товара")
+@Feature(value = "Проверка добавление в корзину товара")
 public class AddToCartTest extends BaseUITest {
 
     @Test
+    @DisplayName("Проверка регистрации нового пользователя с последующим добавлением в корзину товара из категории \"Dresses\"")
+    @Story(value = "Проверка добавления товара в корзину после регистрации")
+    @Description(value = "Тест-кейс позволяет проверить добавление в корзину рандомного товара из категории \"Women\" сразу после регистрации")
     public void regAuthBuying() throws InterruptedException {
         mainPage.home();
         header.goToSignIn();
@@ -45,6 +57,9 @@ public class AddToCartTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Проверка добавления в корзину товара из категории \"Dresses\"")
+    @Story(value = "Добавление в корзину товара из категории \"Dresses\"")
+    @Description(value = "Тест-кейс позволяет проверить добавление в корзину рандомного товара из категории \"Dresses\"")
     public void authBuyDress() throws InterruptedException {
         mainPage.home();
 //        signInPage.signIn();
@@ -61,6 +76,9 @@ public class AddToCartTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Проверка добавления в корзину товара из категории \"Women\"")
+    @Story(value = "Добавление в корзину товара из категории \"Women\"")
+    @Description(value = "Тест-кейс позволяет проверить добавление в корзину рандомного товара из категории \"Women\"")
     public void authBuyWomen() throws InterruptedException {
         mainPage.home();
 //        signInPage.signIn();

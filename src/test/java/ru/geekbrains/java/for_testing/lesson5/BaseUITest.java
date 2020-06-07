@@ -1,6 +1,7 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,7 @@ public abstract class BaseUITest {
     protected PopUpAfterAddToCart popUpAfterAddToCart;
 
     @BeforeEach
+    @Step("Запуск браузера с выставленными параметрами")
     public void init() {
         WebDriverManager.chromedriver().setup();
 
@@ -50,6 +52,7 @@ public abstract class BaseUITest {
     }
 
     @AfterEach
+    @Step("Закрытие браузера по окончании теста")
     public void shutdown() {
         driver.quit();
     }

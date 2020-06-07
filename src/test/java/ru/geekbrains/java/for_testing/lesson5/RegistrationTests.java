@@ -1,8 +1,13 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -11,10 +16,15 @@ import java.util.stream.Stream;
 
 import static java.lang.Thread.sleep;
 
+@Execution(ExecutionMode.SAME_THREAD)
 @DisplayName("Registration tests for http://automationpractice.com")
+@Feature(value = "Проверка регистрации")
+@Story(value = "Проверка регистрации")
 public class RegistrationTests extends BaseUITest {
 
     @Test
+    @DisplayName("Проверка перехода на страницу ввода персональных данных клиента для атворизации")
+    @Description(value = "Тест-кейс позволяет проверить форму авторизации, создание новой учётной записи с заданными параметрами и загрузку страницы аккаунта после регистрации")
     public void createNewAccountTest() throws InterruptedException {
         mainPage.home();
         mainPage.goToSignIn();
@@ -24,6 +34,7 @@ public class RegistrationTests extends BaseUITest {
 
 
     @DisplayName("Positive test of creation new account with random email and valid user data")
+    @Description(value = "Тест-кейс позволяет проверить форму авторизации, создание новой учётной записи с заданными параметрами и загрузку страницы аккаунта после регистрации")
     @ParameterizedTest(name = "{index} ==> {0} {1} from {5}. Ph.: {10}")
     @MethodSource("userData")
     public void createNewAccountParamsTest(

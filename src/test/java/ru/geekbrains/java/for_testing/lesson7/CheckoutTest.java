@@ -1,15 +1,27 @@
 package ru.geekbrains.java.for_testing.lesson7;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import ru.geekbrains.java.for_testing.lesson5.BaseUITest;
 import ru.geekbrains.java.for_testing.lesson5.Header;
 
 import static java.lang.Thread.sleep;
 
+@Execution(ExecutionMode.SAME_THREAD)
+@DisplayName("Оформление заказа")
+@Feature(value = "Проверка оформления заказа")
 public class CheckoutTest extends BaseUITest {
 
     @Test
+    @DisplayName("Тест оформления заказа")
+    @Story(value = "Проверка оформления заказа с оплатой \"By bank wire\"")
+    @Description(value = "Тест-кейс позволяет проверить полный цикл оформления заказа с выбором вида оплаты \"By bank wire\"")
     public void proceedToPaymentByBankTest() throws InterruptedException {
         mainPage.home();
         mainPage.home();
@@ -41,6 +53,9 @@ public class CheckoutTest extends BaseUITest {
     }
 
     @Test
+    @DisplayName("Тест оформления заказа")
+    @Story(value = "Проверка оформления заказа с оплатой \"By check\"")
+    @Description(value = "Тест-кейс позволяет проверить полный цикл оформления заказа с выбором вида оплаты \"By check\"")
     public void proceedToPaymentByCheckTest() throws InterruptedException {
         mainPage.home();
         mainPage.home();
