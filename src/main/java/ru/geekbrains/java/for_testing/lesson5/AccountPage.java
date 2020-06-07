@@ -1,13 +1,10 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-public class AccountPage extends BaseActions{
+public class AccountPage extends BaseActions {
 
     private static final By MY_ACCOUNT = By.cssSelector("h1");
 
@@ -31,20 +28,40 @@ public class AccountPage extends BaseActions{
         super(driver, wait);
     }
 
-    public void checkAccountPage() {
-        Assertions.assertAll(
-                ()-> assertTrue(isElementPresent(MY_ACCOUNT), "Не отобразился заголовок \"My Account\""),
-                ()-> assertTrue(isElementPresent(ORDER_HISTORY_BTN), "Не отобразился текст кнопки \"Order history and details\""),
-                ()-> assertTrue(isElementPresent(ORDER_HISTORY_ICON), "Не отобразилась иконка \"Order history and details\""),
-                ()-> assertTrue(isElementPresent(MY_CREDIT_SLIPS_BTN),"Не отобразился текст кнопки \"My Credit Slips\""),
-                ()-> assertTrue(isElementPresent(MY_CREDIT_SLIPS_ICON), "Не отобразилась иконка \"My Credit Slips\""),
-                ()-> assertTrue(isElementPresent(MY_ADDRESSES_BTN), "Не отобразился текст кнопки \"My Addresses\""),
-                ()-> assertTrue(isElementPresent(MY_ADDRESSES_ICON), "Не отобразилась иконка \"My Addresses\""),
-                ()-> assertTrue(isElementPresent(MY_PERS_INFO_BTN), "Не отобразился текст кнопки \"My Personal Information\""),
-                ()-> assertTrue(isElementPresent(MY_PERS_INFO_ICON), "Не отобразилась иконка \"My Personal Information\""),
-                ()-> assertTrue(isElementPresent(MY_WISHLISTS_BTN), "Не отобразился текст кнопки \"My wishLists\""),
-                ()-> assertTrue(isElementPresent(MY_WISHLISTS_ICON), "Не отобразилась иконка \"My wishLists\"")
-        );
+//    public void checkAccountPage() {
+//        Assertions.assertAll(
+//                ()-> assertTrue(isElementPresent(MY_ACCOUNT), "Не отобразился заголовок \"My Account\""),
+//                ()-> assertTrue(isElementPresent(ORDER_HISTORY_BTN), "Не отобразился текст кнопки \"Order history and details\""),
+//                ()-> assertTrue(isElementPresent(ORDER_HISTORY_ICON), "Не отобразилась иконка \"Order history and details\""),
+//                ()-> assertTrue(isElementPresent(MY_CREDIT_SLIPS_BTN),"Не отобразился текст кнопки \"My Credit Slips\""),
+//                ()-> assertTrue(isElementPresent(MY_CREDIT_SLIPS_ICON), "Не отобразилась иконка \"My Credit Slips\""),
+//                ()-> assertTrue(isElementPresent(MY_ADDRESSES_BTN), "Не отобразился текст кнопки \"My Addresses\""),
+//                ()-> assertTrue(isElementPresent(MY_ADDRESSES_ICON), "Не отобразилась иконка \"My Addresses\""),
+//                ()-> assertTrue(isElementPresent(MY_PERS_INFO_BTN), "Не отобразился текст кнопки \"My Personal Information\""),
+//                ()-> assertTrue(isElementPresent(MY_PERS_INFO_ICON), "Не отобразилась иконка \"My Personal Information\""),
+//                ()-> assertTrue(isElementPresent(MY_WISHLISTS_BTN), "Не отобразился текст кнопки \"My wishLists\""),
+//                ()-> assertTrue(isElementPresent(MY_WISHLISTS_ICON), "Не отобразилась иконка \"My wishLists\"")
+//        );
+//    }
+
+    public boolean checkAccountPage() {
+        if (
+                isElementPresent(ORDER_HISTORY_BTN) &
+                isElementPresent(MY_ACCOUNT) &
+                isElementPresent(ORDER_HISTORY_BTN) &
+                isElementPresent(ORDER_HISTORY_ICON) &
+                isElementPresent(MY_CREDIT_SLIPS_BTN) &
+                isElementPresent(MY_CREDIT_SLIPS_ICON) &
+                isElementPresent(MY_ADDRESSES_BTN) &
+                isElementPresent(MY_ADDRESSES_ICON) &
+                isElementPresent(MY_PERS_INFO_BTN) &
+                isElementPresent(MY_PERS_INFO_ICON) &
+                isElementPresent(MY_WISHLISTS_BTN) &
+                isElementPresent(MY_WISHLISTS_ICON)
+        ) {
+            return true;
+        }
+        return false;
     }
 
 }

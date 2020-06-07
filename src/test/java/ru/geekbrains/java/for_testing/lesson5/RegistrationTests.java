@@ -1,5 +1,6 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -74,8 +75,8 @@ public class RegistrationTests extends BaseUITest {
 //                Assertions.assertTrue(true, registrationPage.checkAlertInfoFields("Required field"))
         );
         sleep(3000);
-        accountPage.checkAccountPage();
-
+//        accountPage.checkAccountPage();
+        Assertions.assertTrue(accountPage.checkAccountPage(), "Найдена ошибка в отображении элементов на AccountPage");
     }
 
 

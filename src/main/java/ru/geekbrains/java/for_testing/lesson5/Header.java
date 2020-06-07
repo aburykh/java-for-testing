@@ -47,6 +47,7 @@ public class Header extends BaseActions {
     public void goToCart() {
         WebElement element = driver.findElement(CART_BTN);
         pointToElement(element);
+        click(CART_BTN);
     }
 
     public enum СheckButton {

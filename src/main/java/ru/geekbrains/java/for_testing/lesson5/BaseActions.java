@@ -1,9 +1,6 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -57,6 +54,12 @@ public abstract class BaseActions {
         }
     }
 
+    public void select(int index, By by) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(by));
+        Select select = new Select(driver.findElement(by));
+        select.selectByIndex(index);
+    }
+
     public List<WebElement> findElements(By by) {
         return driver.findElements(by);
     }
@@ -64,6 +67,11 @@ public abstract class BaseActions {
     public void pointToElement(WebElement element) {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).perform();
+    }
+
+    public void scrollPage() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 600)");
     }
 
 }
