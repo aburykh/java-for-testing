@@ -52,8 +52,8 @@
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
                         <include>**/*Test.java</include>
+                        <include>**/*Tests.java</include>
                         <include>**/Test*.java</include>
-                        <include>**/Tests*.java</include>
                         <include>**/*WebTest*.java</include>
                     </includes>
                     <argLine>
