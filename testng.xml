@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Tests for http://automationpractice.com autotests" parallel="tests" thread-count="5">
+    <parameter name="browser" value="chrome"/>
+    <test name="MainPage tests" >
+        <classes>
+            <class name="ru.geekbrains.java.for_testing.lesson5.MainPageTests" />
+        </classes>
+    </test>
+
+    <test name="Registration tests" verbose="1">
+        <classes>
+            <class name="ru.geekbrains.java.for_testing.lesson5.RegistrationTests"/>
+        </classes>
+    </test>
+
+    <test name="Sign in and Add to cart tests" verbose="1">
+        <classes>
+            <class name="ru.geekbrains.java.for_testing.lesson6.AddToCartTest"/>
+        </classes>
+    </test>
+
+    <test name="Authentication tests" verbose="1">
+        <classes>
+            <class name="ru.geekbrains.java.for_testing.lesson6.AuthTest"/>
+        </classes>
+    </test>
+
+    <test name="Checkout order tests" verbose="1">
+        <classes>
+            <class name="ru.geekbrains.java.for_testing.lesson7.CheckoutTest"/>
+        </classes>
+    </test>
+</suite>
