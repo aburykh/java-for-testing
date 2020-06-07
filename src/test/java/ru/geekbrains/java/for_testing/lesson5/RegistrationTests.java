@@ -1,6 +1,5 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,7 +9,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static java.lang.Thread.sleep;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Registration tests for http://automationpractice.com")
 public class RegistrationTests extends BaseUITest {
@@ -30,7 +28,7 @@ public class RegistrationTests extends BaseUITest {
     public void createNewAccountParamsTest(
             String customerFirstName,
             String customerLastName,
-//            String email,
+            //String email,
             String passwd,
 //            String name,
 //            String lastName,
@@ -48,11 +46,12 @@ public class RegistrationTests extends BaseUITest {
             throws InterruptedException {
         mainPage.home();
         mainPage.goToSignIn();
-        signInPage.generateNewRandomEmailAccountAndGoToRegistration(5);
+        String randomEmail = signInPage.generateNewRandomEmailAccountAndGoToRegistration(5);
+        //signInPage.generateNewRandomEmailAccountAndGoToRegistration(5);
         registrationPage.fillingFieldsAndCreateAcc(
                 customerFirstName,
                 customerLastName,
-                //email,
+                randomEmail,
                 passwd,
 //                name,
 //                lastName,
