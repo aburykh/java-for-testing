@@ -1,12 +1,12 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
@@ -24,7 +24,7 @@ public abstract class BaseUITest {
     protected Header header;
     protected PopUpAfterAddToCart popUpAfterAddToCart;
 
-    @BeforeEach
+    @BeforeMethod
     public void init() {
         WebDriverManager.chromedriver().setup();
 
@@ -49,7 +49,7 @@ public abstract class BaseUITest {
         signInPage = new SignInPage(driver, wait);
     }
 
-    @AfterEach
+    @AfterMethod
     public void shutdown() {
         driver.quit();
     }

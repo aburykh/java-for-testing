@@ -1,3 +1,4 @@
+/**
 package ru.geekbrains.java.for_testing.lesson4;
 
 import org.junit.jupiter.api.Assertions;
@@ -37,3 +38,4 @@ public class ArgIsNotEmptyArrayTest {
     }
 
 }
+ */

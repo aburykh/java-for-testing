@@ -1,6 +1,5 @@
 package ru.geekbrains.java.for_testing.lesson5;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -54,7 +53,7 @@ public class SignInPage extends BaseActions {
         click(SIGN_IN_BTN);
     }
 
-    public void signIn(){
+    public void signIn() {
         header.goToSignIn();
         signInPage.authentication("12345@123.ru", "пароль");
         accountPage.checkAccountPage();

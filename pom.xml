@@ -17,16 +17,14 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <!--dependencies versions-->
-        <junit-jupiter.version>5.6.2</junit-jupiter.version>
-        <junit-jupiter-api.version>5.6.2</junit-jupiter-api.version>
+        <testng.version>7.1.0</testng.version>
         <sqlite-jdbc.version>3.31.1</sqlite-jdbc.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <webdrivermanager.version>4.0.0</webdrivermanager.version>
         <slf4j.version>1.7.30</slf4j.version>
         <annotations-java5.version>19.0.0</annotations-java5.version>
         <aspectj.version>1.9.5</aspectj.version>
-        <allure-junit5.version>2.13.3</allure-junit5.version>
-        <reportVersion.version>2.13.3</reportVersion.version>
+        <allure.version>2.13.3</allure.version>
 
     </properties>
 
@@ -76,7 +74,7 @@
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version>
                 <configuration>
-                    <reportVersion>${reportVersion.version}</reportVersion>
+                    <reportVersion>${allure.version}</reportVersion>
                     <resultsDirectory>allure-results</resultsDirectory>
                 </configuration>
             </plugin>
@@ -101,9 +99,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>${junit-jupiter.version}</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -120,13 +118,6 @@
             <version>${webdrivermanager.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit-jupiter-api.version}</version>
-            <scope>compile</scope>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -135,12 +126,10 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5 -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit5</artifactId>
-            <version>${allure-junit5.version}</version>
-            <scope>test</scope>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
         </dependency>
 
     </dependencies>
