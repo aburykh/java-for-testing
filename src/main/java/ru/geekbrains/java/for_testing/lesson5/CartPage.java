@@ -51,7 +51,7 @@ public class CartPage extends BaseActions {
         checkoutInShipping();
         typeOfPayment(type);
         confirmOder();
-        backToOders();
+        backToOrders();
         sleep(5000);
     }
 
@@ -83,7 +83,7 @@ public class CartPage extends BaseActions {
         click(I_CONFIRM_MY_ORDER);
     }
 
-    public void backToOders() {
+    public void backToOrders() {
         click(BACK_TO_ORDERS);
     }
 

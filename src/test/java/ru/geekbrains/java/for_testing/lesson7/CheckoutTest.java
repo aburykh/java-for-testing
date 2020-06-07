@@ -28,15 +28,16 @@ public class CheckoutTest extends BaseUITest {
         popUpAfterAddToCart.closePopUp();
         header.goToCart();
         sleep(3000);
-//        cartPage.proceedToCheckout(1);
+//        cartPage.proceedToCheckoutAllTheWay(1);
 //        sleep(3000);
         cartPage.checkoutInCart();
         cartPage.checkoutInAddress();
-        cartPage.checkoutInShipping();
         cartPage.checkboxInShipping();
+        cartPage.checkoutInShipping();
         cartPage.typeOfPayment(1);
         cartPage.confirmOder();
-        cartPage.backToOders();
+        cartPage.backToOrders();
+        sleep(3000);
     }
 
     @Test
@@ -58,15 +59,16 @@ public class CheckoutTest extends BaseUITest {
         popUpAfterAddToCart.closePopUp();
         header.goToCart();
         sleep(3000);
-//        cartPage.proceedToCheckout(2);
+//        cartPage.proceedToCheckoutAllTheWay(2);
 //        sleep(3000);
         cartPage.checkoutInCart();
         cartPage.checkoutInAddress();
-        cartPage.checkoutInShipping();
         cartPage.checkboxInShipping();
+        cartPage.checkoutInShipping();
         cartPage.typeOfPayment(2);
         cartPage.confirmOder();
-        cartPage.backToOders();
+        cartPage.backToOrders();
+        sleep(3000);
     }
 
 }
